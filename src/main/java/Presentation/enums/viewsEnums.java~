@@ -1,9 +1,8 @@
 package Presentation.enums;
 
 import Domain.Entity.View;
-
 public enum ViewsEnums {
-    MAIN("javafx/view/MainView.fxml")
+    MAIN("javafx/view/MainView.fxml");
 
     public final View view;
 

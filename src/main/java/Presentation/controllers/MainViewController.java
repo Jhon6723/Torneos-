@@ -1,31 +1,45 @@
 package Presentation.controllers;
 
-import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import Presentation.enums.ViewsEnums;
 import javafx.stage.Stage;
+import javafx.scene.Scene;
+import java.io.IOException;
 
-public class MainViewController extends Application {
+public class MainViewController {
 
-    public Button buttomWelcome;
+    private Stage stage; // Referencia al Stage principal
 
-    public Button buttomGame;
-    public Button buttomHelp;
-    @FXML
-    private void buttonActionWelcome(){
-
-    }
-    @FXML
-    private void buttonActionGame(){
-
-    }
-    @FXML
-    private void buttonActionHelp(){
-
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
+    // Acción del botón "Iniciar"
+    public void buttonActionWelcome() {
+        try {
+            Scene scene = new Scene(ViewsEnums.MAIN.loadView());
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo básico de errores
+        }
+    }
 
+    // Otras acciones
+    public void buttonActionGame() {
+        try {
+            Scene scene = new Scene(ViewsEnums.MAIN.loadView()); // Cambia la vista si es necesario
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void buttonActionHelp() {
+        try {
+            Scene scene = new Scene(ViewsEnums.MAIN.loadView()); // Cambia la vista si es necesario
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
+

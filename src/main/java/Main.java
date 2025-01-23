@@ -4,20 +4,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class Main extends Application {
     public static void main(String[] args) {
-        launch(args); // Llama al método JavaFX para inicializar la app
+        launch(args); // Inicia la aplicación JavaFX
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("javafx/view/MainView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load()); // Ajusta el tamaño según necesites
-        stage.setTitle("Aplicación de Torneos");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafx/view/MainView.fxml"));
+        Scene scene = new Scene(loader.load());
+        MainViewController controller = loader.getController();
+        controller.setStage(stage); // Pasa el Stage al controlador
         stage.setScene(scene);
+        stage.setTitle("Aplicación de Torneos");
         stage.show();
     }
 }
-
