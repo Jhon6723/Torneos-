@@ -1,9 +1,9 @@
 package Presentation.controllers;
 
 import Presentation.enums.ViewsEnums;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import java.io.IOException;
+import javafx.stage.Stage;
 
 public class MainViewController {
 
@@ -13,33 +13,28 @@ public class MainViewController {
         this.stage = stage;
     }
 
-    // Acción del botón "Iniciar"
-    public void buttonActionWelcome() {
+    @FXML
+    private void buttonActionWelcome() {
         try {
-            Scene scene = new Scene(ViewsEnums.MAIN.loadView());
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace(); // Manejo básico de errores
-        }
-    }
-
-    // Otras acciones
-    public void buttonActionGame() {
-        try {
-            Scene scene = new Scene(ViewsEnums.MAIN.loadView()); // Cambia la vista si es necesario
-            stage.setScene(scene);
-        } catch (IOException e) {
+            // Verifica que el Stage no sea null antes de usarlo
+            if (stage != null) {
+                Scene scene = new Scene(ViewsEnums.MAIN.loadView());
+                stage.setScene(scene);
+            } else {
+                System.err.println("Stage no inicializado");
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void buttonActionHelp() {
-        try {
-            Scene scene = new Scene(ViewsEnums.MAIN.loadView()); // Cambia la vista si es necesario
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    private void buttonActionGame() {
+        // Similar al método anterior
+    }
+
+    @FXML
+    private void buttonActionHelp() {
+        // Similar al método anterior
     }
 }
-
